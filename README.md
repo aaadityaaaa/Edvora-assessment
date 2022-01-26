@@ -3,10 +3,9 @@
 
 # Here are the ScreenShots of the Application
 
-‹img src="screenShots/pic1.png" height="100">
 
 
-![](screenShots/pic1.png)
+![](screenShots/pic1.png | width=100)
 
 
 ![](screenShots/pic2.png)
