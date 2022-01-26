@@ -16,23 +16,23 @@ struct MainView: View {
     @State private var showStateSheet: Bool = false
     @State private var showCitySheet: Bool = false
 
-    @Environment(\.presentationMode) private var presentationMode
+    @Environment(\.presentationMode) var presentationMode
 
     func getUsersbyState() {
         filteredArray = vm.posts.filter({ (user) in
-            return user.address.state == selectedString
+            user.address.state == selectedString
         })
     }
     
     func getUsersbyCity() {
         filteredArray = vm.posts.filter({ (user) in
-            return user.address.city == selectedString
+            user.address.city == selectedString
         })
     }
     
     func getUsersbyProduct() {
         filteredArray = vm.posts.filter({ (user) in
-            return user.product_name == selectedString
+             user.product_name == selectedString
         })
     }
     
@@ -62,6 +62,7 @@ struct MainView: View {
                             Menu("Filters") {
                                 Button {
                                     showProductSheet.toggle()
+                                   
                                 } label: {
                                     Text("Product")
                                 }
@@ -88,7 +89,7 @@ struct MainView: View {
                         .background(RoundedRectangle(cornerRadius: 15))
                         Spacer()
                         Button {
-                            //somehting will come here
+                            filteredArray = []
                         } label: {
                             Text("clear filter")
                                 .font(.title3)
@@ -110,32 +111,101 @@ struct MainView: View {
            
                
             }
+            .sheet(isPresented: $showProductSheet, content: {
+                productsNameisShowing
+            })
+            .sheet(isPresented: $showStateSheet, content: {
+                productsStateisShowing
+            })
+            .sheet(isPresented: $showCitySheet, content: {
+                productsCityisShowing
+            })
             .navigationBarTitle("Edvora")
-            .actionSheet(isPresented: $showingSortOrder) {
-                ActionSheet(title: Text("Sort items"), message: nil, buttons: [
-                    .default(Text("Product")) { showProductSheet.toggle()
-                        presentationMode.wrappedValue.dismiss()
-                    },
-                    .default(Text("State")) { showStateSheet.toggle()
-                        presentationMode.wrappedValue.dismiss()
-
-                    },
-                    .default(Text("City")) { showCitySheet.toggle()
-                        presentationMode.wrappedValue.dismiss()
-
-                    }
-                ])
-
-            }
-            //now i need to add 3 more action sheets in order to show the stuff
-            
-            
-            
         }
         
     }
+  
     
     //MARK:- Main data which is being presented
+    
+    private var productsNameisShowing: some View {
+        
+        VStack {
+//            Button("Dismiss") {
+//                self.presentationMode.wrappedValue.dismiss()
+//            }
+//            .foregroundColor(.red)
+//            .frame(height: 55)
+//            .frame(maxWidth: .infinity)
+//            .buttonStyle(.bordered)
+            
+            List {
+                ForEach(vm.posts, id: \.self) { item in
+                    Text(item.product_name)
+                        .onTapGesture {
+                            selectedString = item.product_name
+                            getUsersbyProduct()
+                            //self.presentationMode.wrappedValue.dismiss()
+                            
+                        }
+                }
+                
+            }
+       
+        }
+        
+    }
+    private var productsStateisShowing: some View {
+        VStack {
+//            Button("Dismiss") {
+//                self.presentationMode.wrappedValue.dismiss()
+//            }
+//            .foregroundColor(.red)
+//            .frame(height: 55)
+//            .frame(maxWidth: .infinity)
+//            .buttonStyle(.bordered)
+
+      
+            List {
+                ForEach(vm.posts, id: \.self) { item in
+                    Text(item.address.state)
+                        .onTapGesture {
+                            selectedString = item.address.state
+                            getUsersbyState()
+                            //self.presentationMode.wrappedValue.dismiss()
+                        }
+                }
+                
+            }
+       
+        }
+        
+    }
+     private var productsCityisShowing: some View {
+        VStack {
+//            Button("Dismiss") {
+//                self.presentationMode.wrappedValue.dismiss()
+//            }
+//            .foregroundColor(.red)
+//            .frame(height: 55)
+//            .frame(maxWidth: .infinity)
+//            .buttonStyle(.bordered)
+      
+            List {
+                ForEach(vm.posts, id: \.self) { item in
+                    Text( item.address.city)
+                        .onTapGesture {
+                            selectedString = item.address.city
+                            getUsersbyCity()
+                            //self.presentationMode.wrappedValue.dismiss()
+                        }
+                }
+                
+            }
+       
+        }
+        
+    }
     
     private var stack: some View {
         VStack{
@@ -154,7 +224,7 @@ struct MainView: View {
                 .padding(.horizontal)
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(vm.posts, id: \.self) { post in
+                    ForEach(filteredArray.isEmpty ? vm.posts : filteredArray, id: \.self) { post in
                         
                         ImageRow(model: post)
                             .cornerRadius(15)
