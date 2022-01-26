@@ -23,8 +23,9 @@ import Foundation
 
 struct ProductModel: Hashable, Codable {
     
-    let productName: String
-    let brandName: String
+   // var id: String = UUID().uuidString
+    let product_name: String
+    let brand_name: String
     let price: Int
     let address: Address
     let discription : String

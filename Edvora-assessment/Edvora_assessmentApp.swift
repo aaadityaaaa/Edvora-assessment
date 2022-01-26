@@ -11,7 +11,7 @@ import SwiftUI
 struct Edvora_assessmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

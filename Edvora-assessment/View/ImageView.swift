@@ -9,22 +9,26 @@ import SwiftUI
 
 struct ImageView: View {
     
-    @StateObject var loader: ImageLoadingViewModel
+    @StateObject var vm: ImageViewModel
     
-    init(url: String, key : String) {
-        _loader = StateObject(wrappedValue: ImageLoadingViewModel(url: url, key: key))
+    init(product: ProductModel) {
+        _vm = StateObject(wrappedValue: ImageViewModel(product: product))
     }
     
-
     
     var body: some View {
-        ZStack {
-            if loader.isloading {
-                ProgressView()
-            } else if let image = loader.Image {
-               Image(uiImage: image)
+        ZStack{
+            if let image = vm.image {
+                Image(uiImage: image)
                     .resizable()
-                    .clipShape(Circle())
+                    .frame(width: 100, height: 100)
+                    .scaledToFit()
+                    .cornerRadius(10)
+            } else if vm.isloading {
+                ProgressView()
+            } else {
+                Image(systemName: "questionmark")
+                    .foregroundColor(.secondary)
             }
         }
     }
@@ -32,6 +36,6 @@ struct ImageView: View {
 
 struct ImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageView(url: "https://via.placeholder.com/600/92c952", key: "1")
+        ImageView(product: ProductModel(product_name: "Amazon pvt ltd", brand_name: "Amazon", price: 300, address: Address(state: "Dadra and Nagar Haveli", city: "Silvassa"), discription: "Its a good product", date: "2012-06-23T21:00:56.042Z", time: "2013-08-23T02:00:06.451Z", image:  "https://www.researchgate.net/profile/Serge-Belongie/publication/221362362/figure/fig2/AS:305566657335318@1449864176496/Sample-of-in-vitro-images-for-different-products.png"))
     }
 }
