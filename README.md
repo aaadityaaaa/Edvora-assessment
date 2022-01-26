@@ -3,7 +3,7 @@
 
 # Here are the ScreenShots of the Application
 
-‹img src="screenShots/pic1.png" width="100" >
+‹img src="screenShots/pic1.png" width="100">
 
 
 ![](screenShots/pic1.png)
