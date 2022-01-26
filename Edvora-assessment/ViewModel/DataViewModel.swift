@@ -43,5 +43,45 @@ class DataViewModel: ObservableObject {
 
     }
     
+//    enum selectedOption: String {
+//        case Product
+//        case State
+//        case City
+//    }
+    
+//   
+    
+    
+    func updateFilteredArray() {
+        
+    }
+    
+    //var projectItems: [ProductModel] = []
+      
+ 
+
+//    var projectItemsDefaultSorted: [ProductModel] {
+//
+//        return projectItems.sorted { first, second in
+//            if first.address.state ==  {
+//                if second.completed == true {
+//                    return true
+//                }
+//            } else if first.completed == true {
+//                if second.completed == false {
+//                    return false
+//                }
+//            }
+//
+//            if first.priority > second.priority {
+//                return true
+//            } else if first.priority < second.priority {
+//                return false
+//            }
+//
+//            return first.itemCreationDate < second.itemCreationDate
+//        }
+    //}
+    
 
 }

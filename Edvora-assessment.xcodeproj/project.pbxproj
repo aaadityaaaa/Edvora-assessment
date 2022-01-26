@@ -20,6 +20,8 @@
 		0961572C27A0476F00161562 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0961572B27A0476F00161562 /* LocalFileManager.swift */; };
 		0961572E27A0483F00161562 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0961572D27A0483F00161562 /* NetworkingManager.swift */; };
 		0961573027A048BA00161562 /* ProductDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0961572F27A048BA00161562 /* ProductDataService.swift */; };
+		0961573227A14F8F00161562 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0961573127A14F8F00161562 /* HeaderView.swift */; };
+		0961573427A16DE800161562 /* FilterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0961573327A16DE800161562 /* FilterData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		0961572B27A0476F00161562 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
 		0961572D27A0483F00161562 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		0961572F27A048BA00161562 /* ProductDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDataService.swift; sourceTree = "<group>"; };
+		0961573127A14F8F00161562 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		0961573327A16DE800161562 /* FilterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				0908EC0527A0107800E91225 /* ImageView.swift */,
+				0961573127A14F8F00161562 /* HeaderView.swift */,
 				0908EC0D27A022CD00E91225 /* ImageRow.swift */,
 				0908EC0B27A01C2100E91225 /* MainView.swift */,
 			);
@@ -103,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				0908EBFE27A0047D00E91225 /* DataViewModel.swift */,
+				0961573327A16DE800161562 /* FilterData.swift */,
 				0908EC0727A010B600E91225 /* ImageViewModel.swift */,
 			);
 			path = ViewModel;
@@ -211,8 +217,10 @@
 				0908EBEE279FF39D00E91225 /* Edvora_assessmentApp.swift in Sources */,
 				0908EBFF27A0047D00E91225 /* DataViewModel.swift in Sources */,
 				0908EC0E27A022CD00E91225 /* ImageRow.swift in Sources */,
+				0961573227A14F8F00161562 /* HeaderView.swift in Sources */,
 				0908EC0827A010B600E91225 /* ImageViewModel.swift in Sources */,
 				0961573027A048BA00161562 /* ProductDataService.swift in Sources */,
+				0961573427A16DE800161562 /* FilterData.swift in Sources */,
 				0908EC0427A0060300E91225 /* ProductModel.swift in Sources */,
 				0961572A27A046FC00161562 /* ProductImageService.swift in Sources */,
 			);

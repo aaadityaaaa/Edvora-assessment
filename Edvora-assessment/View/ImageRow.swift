@@ -16,24 +16,30 @@ struct ImageRow: View {
             ImageView(product: model)
                 
             
-            VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 10) {
                 Text(model.product_name)
                     .foregroundColor(.white)
+                    .font(.headline)
                 Text(model.brand_name)
                     .foregroundColor(.gray)
+                    .font(.callout)
                 Text("$\(model.price)")
                     .foregroundColor(.white)
+                    .font(.headline)
+
             }
-            Spacer()
+            //Spacer()
             
         }
         .padding()
             HStack(spacing: 30){
             Text(model.address.state)
-                .frame(width: 120)
+                    .font(.caption)
+                //.frame(width: 120)
                 //Spacer()
-            Text("Date: \(model.date)")
-                .frame(width: 220)
+            Text(model.date)
+                    .font(.caption)
+                //.frame(width: 220)
                 
         }
             

@@ -22,7 +22,7 @@ struct ImageView: View {
                 Image(uiImage: image)
                     .resizable()
                     .frame(width: 100, height: 100)
-                    .scaledToFit()
+                    .scaledToFill()
                     .cornerRadius(10)
             } else if vm.isloading {
                 ProgressView()
